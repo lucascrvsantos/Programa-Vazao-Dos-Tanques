@@ -64,6 +64,7 @@ int main()
         printf("\nEstado do Sistema A :\n");
         printf(" Valvula V0 : ABERTA\n");
         printf(" Tanque  TA : ENCHENDO\n\n");
+        // Volta a conferir a leitura do sensor 0.
         goto inicio;
     }
 
@@ -73,14 +74,16 @@ int main()
     scanf("%d", &sensor1);
     if (sensor1 == 0)
     {
+    // Se não estiver cheio, a válvula V0 pode continuar aberta
         printf("\nEstado do Sistema A :\n");
         printf(" Valvula VO : ABERTA\n");
         printf(" Tanque  TA : ENCHENDO\n\n");
+    // Volta a ler o estado do sensor 1.
         goto sensor1;
     }
     else
     {
-        // Caso não, A vávula V0 deve continuar aberta para encher o tanque A.
+    // Caso estiver, a válvula V0 deve ser fechada e a leitura dos sensores do tanque A pode ser iniciada.
         valvula0 = 0;
         printf("\nEstado do Sistema A :\n");
         printf(" Valvula VO : FECHADA\n");
